@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SingleBlog from '../SingleBlog/SingleBlog';
 
-const MainData = () => {
+const MainData = ({setBookmark,markRead}) => {
 
     const [blogs, setBlogs] = useState([]);
     useEffect(()=>{
@@ -12,7 +12,10 @@ const MainData = () => {
     return (
         <div>
             {
-              blogs.map(post =><SingleBlog post={post}></SingleBlog>)  
+              blogs.map(post =><SingleBlog 
+                markRead={markRead}
+                setBookmark={setBookmark} 
+                post={post}></SingleBlog>)  
             }
             
         </div>

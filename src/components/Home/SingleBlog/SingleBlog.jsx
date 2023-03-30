@@ -1,7 +1,9 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
-const SingleBlog = ({post}) => {
-    console.log(post.tags);
+const SingleBlog = ({post, setBookmark, markRead}) => {
+    // console.log(post.tags);
     return (
         <div>
            <div className="card border-0" >
@@ -18,12 +20,14 @@ const SingleBlog = ({post}) => {
                         </div>
                     </div>
                     <div>
-                        <p>{post.readTime} min read <button>book</button></p>
+                        <p>{post.readTime} min read <button onClick={()=>{
+                            setBookmark(post)
+                        }} className='bg-white p-2'><FontAwesomeIcon icon={faBookmark} /></button></p>
                     </div>
                 </div>
                     <h2 className='my-4'>{post.title}</h2>
                     <p>{post.tags.map(tag=> <span className='me-2'>{tag}</span>)}</p>
-                <a href="#" className="link-underline-primary">Mark as read</a>
+                <button onClick={()=>markRead(post)} className="link-underline-primary bg-white text-primary">Mark as read</button>
                 
             </div>
             </div> 
