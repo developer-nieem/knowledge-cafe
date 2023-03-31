@@ -2,23 +2,11 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { getBlogItemCart } from '../../../utilities/fakedb';
-import { ToastContainer, toast } from 'react-toastify';
 
 
 const SingleBlog = ({post, setBookmark, markRead}) => {
     // console.log(post.tags);
-    // && anotherAdded[key] !
 
-const notifyItem = () =>{
-    const anotherAdded = getBlogItemCart();
-    for (const key in anotherAdded) {
-       if (key === post.title) {
-        const notify = () => toast("Wow so easy!");
-            notify()
-       }
-   }
-}
-  
     return (
         <div>
            <div className="card border-0 p-0" >
@@ -36,13 +24,13 @@ const notifyItem = () =>{
                     </div>
                     <div>
                         <p>{post.readTime} min read <button onClick={()=>{
-                            setBookmark(post), notifyItem() 
+                            setBookmark(post)
                         } } className='bg-white p-2'><FontAwesomeIcon icon={faBookmark} /></button></p>
                     </div>
                 </div>
                     <h2 className='my-4'>{post.title}</h2>
                     <p>{post.tags.map(tag=> <span className='me-2'>{tag}</span>)}</p>
-                <button onClick={()=>markRead(post)} className="link-underline-primary bg-white text-primary">Mark as read</button>
+                <button onClick={()=>markRead(post)} className="link-underline-primary bg-white text-primary mb-5">Mark as read</button>
                 
             </div>
             </div> 
