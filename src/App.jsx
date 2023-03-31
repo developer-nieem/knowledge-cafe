@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Blogs from './components/Blogs/Blogs';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +17,7 @@ function App() {
     <div className="App container">
       <Header></Header>
      <Home></Home>
-
+    <Blogs></Blogs>
 
      <ToastContainer></ToastContainer>
     </div>
