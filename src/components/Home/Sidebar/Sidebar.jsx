@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { getBlogItemCart } from '../../../utilities/fakedb';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Sidebar = ({cart,readTime}) => {
-    const [cartTitle , setCartTitle] = useState([]);
+    const [bookmarkedBlog , setBookmarkedBlog] = useState([]);
 
-    const [time, setTime] = useState(readTime);
+    const [time, setTime] = useState(0);
 
     // bookmarked blog
     useEffect(()=>{
         const getBlogTitle = getBlogItemCart();
          let blogTitle = [];
     for (const key in getBlogTitle) {
-        blogTitle.push(key);  
+        blogTitle.push(key); 
         }
-        setCartTitle(blogTitle);
+        setBookmarkedBlog(blogTitle);
     },[cart])
   
 
@@ -27,9 +28,9 @@ const Sidebar = ({cart,readTime}) => {
     return (
         <div >
             <h5 className='bg-white p-3 rounded my-4 text-primary'>Spent time on read : {time} min</h5>
-            <h5 className='fw-bold'>Bookmarked Blogs : {cartTitle.length}</h5>
+            <h5 className='fw-bold'>Bookmarked Blogs : {bookmarkedBlog.length}</h5>
             {
-                cartTitle.map(title => <h5 className='bg-white p-3 rounded'>{title}</h5>)
+                bookmarkedBlog.map(title => <h5 className='bg-white p-3 rounded'>{title}</h5>)
             }
         </div>
     );

@@ -33,7 +33,7 @@ const Home = () => {
             <div className='col-md-8'>
             <MainData markRead={markRead} setBookmark={setBookmark}></MainData>
             </div>
-            <div className="col-md-4 bg-light mt-5">
+            <div className="col-md-4 bg-light rounded">
             <Sidebar readTime={readTime} cart={cart}></Sidebar>
             </div>
         </div>
