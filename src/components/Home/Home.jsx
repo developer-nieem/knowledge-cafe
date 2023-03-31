@@ -6,20 +6,8 @@ import Sidebar from './Sidebar/Sidebar';
 const Home = () => {
    /*  const [blog, setBlog] = useState([]) */
     const [cart, setCart] =useState('');
+    const [readTime, setReadTime] = useState(0)
 
-    // useEffect(()=>{
-    //     const getCarts = getBlogItemCart();
-    //     let storProduct = [];
-    //     // step 1: get id
-    //     for (const name in getCarts) {
-    //         //step 2: get the cart by using id
-    //         const product = blog.find(food => food.strCategory === name);
-    //         if (product) {
-    //             storProduct.push(product)
-    //         }
-    //     }
-    //     setCart(storProduct)
-    // },[blog])
 
     const setBookmark = (postData) =>{
         // console.log(postData.id);
@@ -27,14 +15,17 @@ const Home = () => {
         addToDb(postData.title);
     }
 
+    // Read time function
     const markRead = (time) =>{
         // console.log('read',time);
-        const getTimeFromLocal= JSON.parse(localStorage.getItem('readTime'));
-        if(getTimeFromLocal){
-            const sum =  getTimeFromLocal + time.readTime;
+        const previousReadTime= JSON.parse(localStorage.getItem('readTime'));
+        if(previousReadTime){
+            const sum =  previousReadTime + time.readTime;
             localStorage.setItem('readTime', sum )
+            setReadTime(sum)
         }else{
-            localStorage.setItem('readTime',time.readTime )
+            localStorage.setItem('readTime',time.readTime );
+            setReadTime(time.readTime)
         }
     }
     return (
@@ -43,7 +34,7 @@ const Home = () => {
             <MainData markRead={markRead} setBookmark={setBookmark}></MainData>
             </div>
             <div className="col-md-4 bg-light mt-5">
-            <Sidebar cart={cart}></Sidebar>
+            <Sidebar readTime={readTime} cart={cart}></Sidebar>
             </div>
         </div>
     );
