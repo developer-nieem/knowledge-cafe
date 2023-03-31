@@ -30,7 +30,7 @@ const SingleBlog = ({post, setBookmark, markRead}) => {
                 </div>
                     <h2 className='my-4'>{post.title}</h2>
                     <p>{post.tags.map(tag=> <span className='me-2'>{tag}</span>)}</p>
-                <button onClick={()=>markRead(post)} className="link-underline-primary bg-white text-primary mb-5">Mark as read</button>
+                <button style={{textDecoration: "underline"}} onClick={()=>markRead(post)} className=" bg-white text-primary mb-5">Mark as read</button>
                 
             </div>
             </div> 

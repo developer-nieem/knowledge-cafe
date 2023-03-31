@@ -5,7 +5,7 @@ import Sidebar from './Sidebar/Sidebar';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Home = () => {
-    
+
     const [cart, setCart] =useState('');
     const [readTime, setReadTime] = useState('')
 

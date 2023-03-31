@@ -4,6 +4,7 @@ import SingleBlog from '../SingleBlog/SingleBlog';
 const MainData = ({setBookmark,markRead}) => {
 
     const [blogs, setBlogs] = useState([]);
+   
     useEffect(()=>{
         fetch('data.json')
         .then(res => res.json())
@@ -12,7 +13,8 @@ const MainData = ({setBookmark,markRead}) => {
     return (
         <div>
             {
-              blogs.map(post =><SingleBlog 
+              blogs.map(post => <SingleBlog 
+                key={post.id}
                 markRead={markRead}
                 setBookmark={setBookmark} 
                 post={post}></SingleBlog>)  

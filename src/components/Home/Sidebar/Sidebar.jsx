@@ -22,7 +22,12 @@ const Sidebar = ({cart,readTime}) => {
         // read time 
         useEffect(()=>{
             const getItem = localStorage.getItem('readTime');
-            setTime(getItem)
+            if (!getItem) {
+                setTime(0)
+            }else{
+                setTime(getItem)
+            }
+            
         },[readTime])
        
     return (
