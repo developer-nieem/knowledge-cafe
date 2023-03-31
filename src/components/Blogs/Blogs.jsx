@@ -26,7 +26,7 @@ const Blogs = () => {
                 here is the example: 
                 
                  </p>
-                 <img src={code} alt="" />
+                 <img className='img-fluid' src={code} alt="" />
                 
             </div>
             </div>
